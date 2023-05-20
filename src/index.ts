@@ -1,1 +1,3 @@
-export const foo = 'foo'
+import Client from './component/index';
+
+export default Client;
