@@ -1,6 +1,6 @@
 {
   "name": "magic-chart-js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Wrapper around Chart.js that uses AI to generate configuration.",
   "publishConfig": {
     "access": "public"
