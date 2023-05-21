@@ -3,7 +3,7 @@ A proof of concept wrapper around [Chart.js](https://github.com/chartjs/Chart.js
 
 Simply pass in `results` to the chart and the LLM will decide how to display them! You can also pass in instructions via the `prompt`, if you have something in mind.
 
-This is currently very much a proof of concept!
+This is currently very much a proof of concept! I have a few ideas for how to significantly improve this through better chains, that I will implement when I get the chance!
 
 ## Setting up
 
