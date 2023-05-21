@@ -5,6 +5,8 @@ Simply pass in `results` to the chart and the LLM will decide how to display the
 
 This is currently very much a proof of concept! I have a few ideas for how to significantly improve this through better chains, that I will implement when I get the chance!
 
+[**Watch demo!**](https://www.loom.com/share/e70f8a29eb8f492f88b3d9ae0ea2c661)
+
 ## Setting up
 
 Start by installing this library:
