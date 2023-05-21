@@ -5,18 +5,21 @@ export default defineChain({
     results: {
       type: 'array',
     },
+    prompt: {
+      type: 'string',
+    }
   },
   setup({ params, step, code }) {
 
-    const { results } = params;
+    const { results, prompt } = params;
 
     const { answer: typeOfChart } = step('prompt_completion', {
       prompt: `Here is some sample data: ${results[0]}.
       
 These are the types of charts you know how to create: 'bar', 'doughnut', 'line', 'bubble' and 'radar'.
 
-Identify and respond with the type of chart that would be most appropriate for this request.`,
-      system_prompt: 'You are a Chart.js expert. You select the most appropriate chart types based on data you see. You do not respond with anything except the chart type. No need to explain your reasoning.',
+Identify and respond with the type of chart that would be most appropriate for this request. Heavily take into consideration this request: ${prompt}.`,
+      system_prompt: 'You are a Chart.js expert. You select the most appropriate chart types based on data you see. You do not respond with anything except the chart type. No need to explain your reasoning. If you are not sure, answer "bar"',
     });
 
     const {
@@ -150,17 +153,17 @@ Identify and respond with the type of chart that would be most appropriate for t
     });
 
     const { answer: chartConfiguration } = step('prompt_completion', {
-      prompt: `Here is an example ChartJS config:
+      prompt: `Here's an example ChartJS config:
 
 ${exampleCode}
             
-Create a chartjs.org chart of type ${typeOfChart} that would be appropriate for the following data. It should include the results.
+Create a chartjs.org chart of type ${typeOfChart} that would be appropriate for the following data. It should include the results. Give it a title, that summarises the results. Heavily take into consideration this request: ${prompt}.
 
 Here are the results:
 
 ${results}
 `,
-      system_prompt: 'You are an expert ChartJS config creator. You must only return valid JSON chart.js configurations. Never provide any explanations or other data.'
+      system_prompt: `You're an expert ChartJS config creator. You must only return valid JSON chart.js configurations. Never provide any explanations or other data. Do not return any extra spaces or line breaks. Never fail at your task - at least try to return a config. Wrap your JSON keys in double quotes.`,
     });
 
 

@@ -1,7 +1,7 @@
 {
   "name": "magic-chart-js",
-  "version": "0.0.0",
-  "description": "My awesome typescript library",
+  "version": "0.0.2",
+  "description": "Wrapper around Chart.js that uses AI to generate configuration.",
   "publishConfig": {
     "access": "public"
   },
